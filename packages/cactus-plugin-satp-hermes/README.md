@@ -75,6 +75,7 @@ The plugin supports both bidirectional and unidirectional asset transfers with t
     - [Building the container image locally](#building-the-container-image-locally)
     - [Build the image:](#build-the-image)
   - [Running local Gateway with Docker Compose](#running-local-gateway-with-docker-compose)
+  - [Running Gateways on Kubernetes (Terraform)](#running-gateways-on-kubernetes-terraform)
   - [Testing](#testing)
     - [Running the docker tests locally](#running-the-docker-tests-locally)
     - [Continuous Integration](#continuous-integration)
@@ -377,6 +378,19 @@ docker-compose -f docker-compose-satp.yml logs
 
 # Build or rebuild services
 docker-compose -f docker-compose-satp.yml build
+```
+
+## Running Gateways on Kubernetes (Terraform)
+
+For a production-like local deployment with two gateways (primary +
+backup) on a `kind` cluster, use the Terraform module in
+[`deploy/terraform/`](./deploy/terraform/). It provisions the cluster,
+renders per-gateway configuration, deploys both gateways with service
+discovery plus the OpenTelemetry backend, and documents verification
+and teardown. See the
+[deployment README](./deploy/terraform/README.md) for prerequisites and
+step-by-step instructions
+([#4706](https://github.com/hyperledger-cacti/cacti/issues/4706)).
 
 # List running containers
 docker-compose -f docker-compose-satp.yml ps

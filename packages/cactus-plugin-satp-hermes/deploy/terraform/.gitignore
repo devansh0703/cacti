@@ -1,0 +1,11 @@
+# Terraform working dir and state must never be committed.
+# The lock file IS committed to pin provider versions.
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json

@@ -7,6 +7,8 @@ The tracked [Compose file](https://github.com/hyperledger-cacti/cacti/blob/main/
 
 The gateway CLI uses `/opt/cacti/satp-hermes` as its default working directory. The tracked Compose service mounts the Gateway 1 development configuration at `/opt/cacti/satp-hermes/config/config.json`, which is the path loaded by the container entry point. This example connects to an Ethereum JSON-RPC endpoint at `http://host.docker.internal:8545`; start the corresponding local development ledger before the gateway. Replace the example keys, credentials, and endpoint configuration for non-development deployments. See [Gateway Configuration][package-doc-configuration-md] for the configuration schema and path details.
 
+For a two-gateway (primary + backup) Kubernetes deployment on a local `kind` cluster, use the Terraform module in [`deploy/terraform/`](../deploy/terraform/README.md) ([cacti#4706](https://github.com/hyperledger-cacti/cacti/issues/4706)).
+
 ## Container environment
 
 | Variable | Tracked value or purpose |

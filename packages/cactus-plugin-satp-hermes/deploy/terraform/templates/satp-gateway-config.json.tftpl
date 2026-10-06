@@ -1,0 +1,89 @@
+{
+  "gid": {
+    "id": "${gateway_id}",
+    "name": "CustomGateway",
+    "version": [
+      {
+        "Core": "v02",
+        "Architecture": "v02",
+        "Crash": "v02"
+      }
+    ],
+    "connectedDLTs": [
+      {
+        "id": "${ledger_id}",
+        "ledgerType": "ETHEREUM"
+      }
+    ],
+    "proofID": "${proof_id}",
+    "address": "http://${service_name}:${server_port}",
+    "gatewayClientPort": ${client_port},
+    "gatewayServerPort": ${server_port},
+    "gatewayOapiPort": ${oapi_port},
+    "identificationCredential": {
+      "signingAlgorithm": "SECP256K1",
+      "pubKey": "${pub_key}"
+    }
+  },
+  "logLevel": "TRACE",
+  "counterPartyGateways": [
+    {
+      "id": "${counterparty_id}",
+      "name": "CustomGateway",
+      "version": [
+        {
+          "Core": "v02",
+          "Architecture": "v02",
+          "Crash": "v02"
+        }
+      ],
+      "connectedDLTs": [
+        {
+          "id": "${counterparty_ledger_id}",
+          "ledgerType": "ETHEREUM"
+        }
+      ],
+      "proofID": "${counterparty_proof_id}",
+      "address": "http://${counterparty_service_name}:${server_port}",
+      "gatewayClientPort": ${client_port},
+      "gatewayServerPort": ${server_port},
+      "gatewayOapiPort": ${oapi_port},
+      "identificationCredential": {
+        "signingAlgorithm": "SECP256K1",
+        "pubKey": "${counterparty_pub_key}"
+      }
+    }
+  ],
+  "environment": "development",
+  "ccConfig": {
+    "bridgeConfig": [
+      {
+        "networkIdentification": {
+          "id": "${ledger_id}",
+          "ledgerType": "ETHEREUM"
+        },
+        "signingCredential": {
+          "transactionSignerEthAccount": "${eth_account}",
+          "secret": "${eth_secret}",
+          "type": "PRIVATE_KEY_HEX"
+        },
+        "gasConfig": {
+          "gas": "6721975",
+          "gasPrice": "20000000000"
+        },
+        "connectorOptions": {
+          "rpcApiHttpHost": "${ledger_rpc_url}"
+        },
+        "claimFormats": [
+          1
+        ]
+      }
+    ]
+  },
+  "keyPair": {
+    "privateKey": "${priv_key}",
+    "publicKey": "${pub_key}"
+  },
+  "enableCrashRecovery": false,
+  "ontologyPath": "/opt/cacti/satp-hermes/ontologies"
+}

@@ -1,0 +1,12 @@
+# Development fixtures for the SATP Hermes Terraform deployment
+# (hyperledger-cacti/cacti#4706). These are the publicly documented
+# development keys from the tracked example gateway configs
+# (packages/cactus-plugin-satp-hermes/src/examples/config/
+# satp-gateway1-config.json and satp-gateway2-config.json), mirrored as
+# Terraform defaults so a new contributor can deploy without
+# pre-provisioning key material. They must be replaced for any
+# non-development deployment. Never add production credentials here.
+packages/cactus-plugin-satp-hermes/deploy/terraform/main.tf:generic-api-key:28
+packages/cactus-plugin-satp-hermes/deploy/terraform/main.tf:generic-api-key:30
+packages/cactus-plugin-satp-hermes/deploy/terraform/main.tf:generic-api-key:46
+packages/cactus-plugin-satp-hermes/deploy/terraform/main.tf:generic-api-key:48
